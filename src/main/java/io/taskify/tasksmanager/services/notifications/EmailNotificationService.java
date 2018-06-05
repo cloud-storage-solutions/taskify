@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import io.taskify.tasksmanager.domain.User;
 
 @Service
-public class EmailNotificationService implements NotificationSender {
+public class EmailNotificationService {
 	@Autowired
 	private JavaMailSender mailSender;
 
@@ -23,7 +23,6 @@ public class EmailNotificationService implements NotificationSender {
 		// tasksRepository.findAllUsersWithUnfinishedTasks();
 	}
 
-	@Override
 	public void sendNotificationTo(final User user) {
 		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
 		simpleMailMessage.setTo(user.getEmail());
