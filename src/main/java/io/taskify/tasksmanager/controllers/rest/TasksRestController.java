@@ -1,4 +1,4 @@
-package io.taskify.tasksmanager.controllers;
+package io.taskify.tasksmanager.controllers.rest;
 
 import java.util.List;
 
@@ -11,12 +11,12 @@ import io.taskify.tasksmanager.domain.Task;
 import io.taskify.tasksmanager.repositories.TasksRepository;
 
 @RestController
-@RequestMapping("/tasks")
-public class TasksController {
+@RequestMapping("/rest")
+public class TasksRestController {
 	@Autowired
 	private TasksRepository tasksRepository;
 
-	@GetMapping
+	@GetMapping("/tasks")
 	public List<Task> listAllTasks() {
 		return tasksRepository.findAll();
 	}
