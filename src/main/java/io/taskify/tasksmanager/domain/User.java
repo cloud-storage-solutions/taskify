@@ -1,9 +1,6 @@
 package io.taskify.tasksmanager.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import static javax.persistence.GenerationType.AUTO;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +9,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-import static javax.persistence.GenerationType.AUTO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity(name = User.USERS_PERSISTENCE_NAME)
 @Table(name = User.USERS_PERSISTENCE_NAME)
@@ -29,6 +29,9 @@ public class User {
 
 	@NotBlank
 	private String username;
+
+	// validate field
+	private String password;
 
 	@Email
 	private String email;

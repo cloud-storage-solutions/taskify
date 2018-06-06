@@ -12,7 +12,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -47,7 +46,6 @@
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="login.html">Login</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Help <span class="caret"></span></a>
@@ -61,34 +59,36 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-
-	<div class="panel panel-default">
-		<!-- Default panel contents -->
-		<div class="panel-heading">Shows a list of all the tasks.
-			Detailed information is provided in the following columns below.</div>
-		<div class="panel-body">
-			<table class="table">
-				<thead class="thead-light">
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Name</th>
-						<th scope="col">Description</th>
-						<th scope="col">Completed</th>
-						<th scope="col">Due to</th>
-						<th scope="col">Assigned user</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="task, iterator: ${tasks}">
-						<td th:text="${iterator.count}">Count</td>
-						<td th:text="${task.name}">Task Name</td>
-						<td th:text="${task.description}">Task Description</td>
-						<td th:text="${task.completed}">Task Completion</td>
-						<td th:text="${task.dueTo}">Due to date</td>
-						<td th:text="${task.assignedUser.username}">Assigned user</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+	<div class="container">
+		<form>
+			<div class="form-group">
+				<label for="usernameTextInput">Username</label> <input
+					type="username" class="form-control" id="usernameTextInput"
+					aria-describedby="emailHelp" placeholder="Enter username">
+				<small id="usernameHelp" class="form-text text-muted">This
+					will be your display name.</small>
+			</div>
+			<form>
+				<div class="form-group">
+					<label for="emailTextInput">Email address</label> <input
+						type="email" class="form-control" id="emailTextInput"
+						aria-describedby="emailHelp" placeholder="Enter email"> <small
+						id="emailHelp" class="form-text text-muted">The email will
+						be used to send email notifications. Please note that we'll never
+						share your email with anyone else.</small>
+				</div>
+				<div class="form-group">
+					<label for="passwordTextInput">Password</label> <input
+						type="password" id="passwordTextInput" class="form-control"
+						aria-describedby="passwordHelpBlock"> <small
+						id="passwordHelpBlock" class="form-text text-muted"> Your
+						password must be 8-20 characters long, contain letters and
+						numbers, and must not contain spaces, special characters, or
+						emoji. </small>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</form>
+	</div>
 </body>
 </html>
