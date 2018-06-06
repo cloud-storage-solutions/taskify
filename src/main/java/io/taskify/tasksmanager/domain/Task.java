@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -41,6 +43,7 @@ public class Task {
 	private boolean isCompleted;
 
 	@NotNull
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private LocalDate dueTo;
 
 	@OneToOne(cascade = ALL, fetch = EAGER)
