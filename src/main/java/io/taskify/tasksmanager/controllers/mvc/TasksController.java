@@ -1,7 +1,5 @@
 package io.taskify.tasksmanager.controllers.mvc;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,19 +27,17 @@ public class TasksController {
 		return "tasks";
 	}
 
-	@GetMapping("/login")
-	public String login() {
-		return "login";
+	@GetMapping("/register")
+	public String register() {
+		return "register";
 	}
 
-	@PostMapping("/register")
-	public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult, Model model) {
+	@PostMapping(params = "submit")
+	public String registerUser(@ModelAttribute User user, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
-			model.addAttribute("errors", bindingResult.getAllErrors());
-			return "error";
+			return "errors";
 		}
-		// TODO extend to save user in DB
+		// save user;
 		return null;
-
 	}
 }

@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,8 +30,8 @@ public class User {
 
 	@NotBlank
 	private String username;
-
-	// validate field
+	// Minimum eight characters, at least one letter and one number
+	@Pattern(regexp = "\"^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$\"")
 	private String password;
 
 	@Email
