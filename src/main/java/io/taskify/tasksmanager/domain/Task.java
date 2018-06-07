@@ -43,7 +43,7 @@ public class Task {
 	private boolean isCompleted;
 
 	@NotNull
-	@JsonFormat(pattern = "dd-MM-yyyy")
+	@JsonFormat(pattern = "dd.MM.yyyy")
 	private LocalDate dueTo;
 
 	@OneToOne(cascade = ALL, fetch = EAGER)

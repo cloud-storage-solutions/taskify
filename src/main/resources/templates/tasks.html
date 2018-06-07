@@ -84,7 +84,7 @@
 						<td th:text="${task.name}">Task Name</td>
 						<td th:text="${task.description}">Task Description</td>
 						<td th:text="${task.completed}">Task Completion</td>
-						<td th:text="${task.dueTo}">Due to date</td>
+						<td th:text="${#temporals.format(task.dueTo, 'dd.MM.yyyy')}">Due to date</td>
 						<td th:text="${task.assignedUser.username}">Assigned user</td>
 					</tr>
 				</tbody>
