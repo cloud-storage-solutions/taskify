@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.taskify.tasksmanager.domain.Task;
-import io.taskify.tasksmanager.repositories.TasksRepository;
+import io.taskify.tasksmanager.repositories.tasks.TasksRepository;
 
 @RestController
 @RequestMapping("/rest")

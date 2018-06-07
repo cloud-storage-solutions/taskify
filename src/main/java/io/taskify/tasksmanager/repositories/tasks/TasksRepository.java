@@ -1,4 +1,4 @@
-package io.taskify.tasksmanager.repositories;
+package io.taskify.tasksmanager.repositories.tasks;
 
 import io.taskify.tasksmanager.domain.Task;
 import org.springframework.data.jpa.repository.JpaRepository;

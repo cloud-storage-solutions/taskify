@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import io.taskify.tasksmanager.domain.User;
-import io.taskify.tasksmanager.repositories.TasksRepository;
+import io.taskify.tasksmanager.repositories.tasks.TasksRepository;
+import io.taskify.tasksmanager.repositories.users.UsersRepository;
 
 @Controller
 public class TasksController {
 	@Autowired
 	private TasksRepository tasksRepository;
+
+	@Autowired
+	private UsersRepository usersRepository;
 
 	@GetMapping("/")
 	public String displayIndex() {
@@ -34,10 +38,10 @@ public class TasksController {
 
 	@PostMapping(params = "submit")
 	public String registerUser(@ModelAttribute User user, BindingResult bindingResult) {
-		if (bindingResult.hasErrors()) {
-			return "errors";
-		}
-		// save user;
-		return null;
+		// if (bindingResult.hasErrors()) {
+		// return "errors";
+		// }
+		usersRepository.save(user);
+		return "index";
 	}
 }
