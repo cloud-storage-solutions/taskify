@@ -3,10 +3,10 @@ package io.taskify.tasksmanager.controllers.mvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import io.taskify.tasksmanager.domain.User;
 import io.taskify.tasksmanager.repositories.tasks.TasksRepository;
@@ -32,16 +32,19 @@ public class TasksController {
 	}
 
 	@GetMapping("/register")
-	public String register() {
+	public String register(Model model) {
+		model.addAttribute("user", new User());
 		return "register";
 	}
 
-	@PostMapping(params = "submit")
-	public String registerUser(@ModelAttribute User user, BindingResult bindingResult) {
+	@PostMapping("/register")
+	public ModelAndView registerUser(@ModelAttribute User user) {
 		// if (bindingResult.hasErrors()) {
 		// return "errors";
 		// }
+
 		usersRepository.save(user);
-		return "index";
+		System.out.println(usersRepository.findAll());
+		return new ModelAndView("submit");
 	}
 }

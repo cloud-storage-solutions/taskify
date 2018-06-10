@@ -60,10 +60,11 @@
 		<!-- /.container-fluid -->
 	</nav>
 	<div class="container">
-		<form>
+		<form action="#" th:action="@{/register}" th:object="${user}"
+			method="post">
 			<div class="form-group">
-				<label for="usernameTextInput">Username</label> <input
-					type="username" class="form-control" id="usernameTextInput"
+				<label for="usernameTextInput">Username</label> <input type="text"
+					th:field="*{username}" class="form-control" id="usernameTextInput"
 					aria-describedby="emailHelp" placeholder="Enter username">
 				<small id="usernameHelp" class="form-text text-muted">This
 					will be your display name.</small>
@@ -71,11 +72,12 @@
 			<form>
 				<div class="form-group">
 					<label for="emailTextInput">Email address</label> <input
-						type="email" class="form-control" id="emailTextInput"
-						aria-describedby="emailHelp" placeholder="Enter email"> <small
-						id="emailHelp" class="form-text text-muted">The email will
-						be used to send email notifications. Please note that we'll never
-						share your email with anyone else.</small>
+						type="text" th:field="*{email}" class="form-control"
+						id="emailTextInput" aria-describedby="emailHelp"
+						placeholder="Enter email"> <small id="emailHelp"
+						class="form-text text-muted">The email will be used to
+						send email notifications. Please note that we'll never share your
+						email with anyone else.</small>
 				</div>
 				<div class="form-group">
 					<label for="passwordTextInput">Password</label> <input
@@ -86,7 +88,11 @@
 						one letter and one number and numbers, and must not contain
 						spaces, special characters, or emoji. </small>
 				</div>
-				<center><input type="submit" class="btn btn-primary" name=submit value="Register" /></center>
+				<center>
+					<input type="submit" class="btn btn-primary" name=submit
+						value="Register" />
+				</center>
+
 			</form>
 		</form>
 	</div>
